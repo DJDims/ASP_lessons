@@ -26,6 +26,19 @@
             @Html.DisplayFor(model => model.Website)
         </dd>
 
+        <dt>
+            <p>Участники группы</p>
+        </dt>
+
+        <dd>
+            <ul>
+                @foreach (var member in Model.Musicians)
+                {
+                    <li>@member.Firstname @member.Surname</li>
+                }
+            </ul>
+        </dd>
+
     </dl>
 </div>
 <p>

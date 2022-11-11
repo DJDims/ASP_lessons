@@ -30,6 +30,7 @@ namespace MusiciansInBands.Controllers
             }
             Musician musician = db.Musicians.Find(id);
             musician = db.Musicians.Include(m => m.Band).FirstOrDefault(b => b.Id == id);
+            musician = db.Musicians.Include(m => m.Instrument).FirstOrDefault(i => i.Id == id);
             if (musician == null)
             {
                 return HttpNotFound();

@@ -28,6 +28,7 @@ namespace MusiciansInBands.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Band band = db.Bands.Find(id);
+            band = db.Bands.Include(m => m.Musicians).FirstOrDefault(m => m.Id == id);
             if (band == null)
             {
                 return HttpNotFound();
